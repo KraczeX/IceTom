@@ -31,3 +31,241 @@ $c-yellow: hsl(45, 100%, 48%);
 $c-linear-blue: linear-gradient(95.44deg, #3ee1fc 0%, #3e82fc 100%);
 $c-shadow: 0px 4px 60px rgba(62, 130, 252, 0.35);
 $c-shadow-1: 0px 54px 104px 0px #0000000a;
+
+
+@mixin breakpoint($breakpoint) {
+    @if $breakpoint == tabelt {
+        @media (min-width: 768px){
+            @content;
+        }
+    }
+
+    @if $breakpoint == laptop {
+        @media (min-width: 992px){
+            @content;
+        }
+    }
+
+    @if $breakpoint == desktop {
+        @media (min-width: 1200px){
+            @content;
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $f-primary;
+    color: $c-grey-blue;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    background: $c-body;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    &:hover{
+        color: $c-blue;
+    }
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: $c-dark-blue;
+    font-weight: $fw-semibold;
+    margin-bottom: 1.2rem;
+}
+
+h1{
+    font-size: 3.6rem;
+    line-height: 1.28;
+    @include breakpoint(desktop){
+        font-size: 7.2rem;
+    }
+}
+
+h2 {
+    font-size: 3.1rem; 
+    line-height: 1.26;
+    @include breakpoint(desktop){
+        font-size: 6.2rem;
+    }
+}
+
+h3 {
+    font-size: 2.4rem; 
+    line-height: 1.5;
+    @include breakpoint(desktop){
+        font-size: 4rem;
+    }
+}
+
+h4 {
+    font-size: 2.4rem; 
+    line-height: 1.08;
+}
+
+h5 {
+    font-size: 2rem; 
+    line-height: 1.8;
+    font-weight: $fw-medium;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0rem 3rem;
+    margin: auto;
+    overflow: hidden;
+}
+
+.pretitle {
+    font-size: 1.6rem;
+    line-height: 1.3rem;
+    font-weight: $fw-medium;
+    color: $c-blue;
+    @include breakpoint(tabelt){
+        font-size: 2rem;
+    }
+}
+
+.subtitle{
+    font-size: 1.8rem;
+    line-height: 1.46;
+    margin-bottom: 3rem;
+    @include breakpoint(desktop){
+        font-size: 2.2rem;
+    }
+}
+
+.section{
+    padding: 6.5rem 0;
+    @include breakpoint(desktop){
+        padding: 13rem 0;
+    }
+}
+
+.btn{
+    background: none;
+    border: none;
+    font-family: $f-primary;
+    font-size: 1.6rem;
+    font-weight: $fw-semibold;
+    padding: 0rem 4rem;
+    border-radius: 30%;
+    height: 6.5rem;
+    cursor: pointer;
+    @include breakpoint(desktop){
+        font-size: 1.8rem;
+    }
+    &--primary{
+        background: $c-blue;
+        color: $c-white;
+        box-shadow: $c-shadow;
+
+        &:hover{
+            background: darken($c-blue, 10%);
+        }
+    }
+    &--outline{
+        background: none;
+        color: $c-blue;
+        border: 1px solid $c-blue;
+
+        &:hover{
+            background: $c-blue;
+            border: 1px solid transparent;
+            color: $c-white;
+        }
+    }
+}
+
+
+
+.header {
+    position: fixed;
+    width: 100%;
+    padding: 2.4rem;
+    z-index: 3;
+    transition: all 0.2s ease-in-out;
+
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+    &__logo{
+        max-width: 250px;
+        display: flex;
+    }
+    &__nav-trigger{
+        font-size: 4rem;
+        color: $c-dark-blue;
+        cursor: pointer;
+        @include breakpoint(desktop){
+            display: none;
+        }
+    }
+    &.active{
+        background: $c-white;
+        transition: all 0.2s ease-in-out;
+        box-shadow: $c-shadow-1;
+        @include breakpoint(desktop){
+            padding: 1.2rem 0;
+        }
+    }
+
+    .nav{
+        background: $c-dark-blue;
+        position: absolute;
+        top: 8rem;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.3 ease;
+        @include breakpoint(desktop){
+            background: none;
+            position: relative;
+            max-height: 100%;
+            top: 0;
+            &__list{
+                width: 100%;
+                display: flex;
+                gap: 6.5rem;
+            } 
+        }
+        &__item{
+            margin: 2rem 0;
+        }
+        &__link{
+            color: $c-white;
+            font-weight: $fw-medium;
+            transition: all 0.3s ease-in-out;
+            @include breakpoint(desktop){
+                color: $c-dark-blue;
+            }
+        }
+    }
+}
