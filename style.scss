@@ -34,7 +34,7 @@ $c-shadow-1: 0px 54px 104px 0px #0000000a;
 
 
 @mixin breakpoint($breakpoint) {
-    @if $breakpoint == tabelt {
+    @if $breakpoint == tablet {
         @media (min-width: 768px){
             @content;
         }
@@ -143,7 +143,7 @@ img {
     line-height: 1.3rem;
     font-weight: $fw-medium;
     color: $c-blue;
-    @include breakpoint(tabelt){
+    @include breakpoint(tablet){
         font-size: 2rem;
     }
 }
@@ -199,12 +199,10 @@ img {
     }
 }
 
-
-
 .header {
     position: fixed;
     width: 100%;
-    padding: 2.4rem;
+    padding: 1rem ;
     z-index: 3;
     transition: all 0.2s ease-in-out;
 
@@ -213,11 +211,16 @@ img {
         justify-content: space-between;
         align-items: center;
         height: 100%;
+        padding: 0rem 0rem; 
     }
-    &__logo{
+
+    &__logo,
+    &__nav-trigger {
         max-width: 250px;
         display: flex;
+        margin-top: 1rem; /* Dodaj odstęp górny tylko gdy menu jest otwarte */
     }
+
     &__nav-trigger{
         font-size: 4rem;
         color: $c-dark-blue;
@@ -226,6 +229,7 @@ img {
             display: none;
         }
     }
+
     &.active{
         background: $c-white;
         transition: all 0.2s ease-in-out;
@@ -238,13 +242,16 @@ img {
     .nav{
         background: $c-dark-blue;
         position: absolute;
-        top: 8rem;
+        top: 10rem; 
         left: 0;
         right: 0;
         display: flex;
         justify-content: center;
         text-align: center;
         transition: all 0.3 ease;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
         @include breakpoint(desktop){
             background: none;
             position: relative;
@@ -267,5 +274,9 @@ img {
                 color: $c-dark-blue;
             }
         }
+        &.open{
+            max-height: 300px;
+        }
     }
 }
+

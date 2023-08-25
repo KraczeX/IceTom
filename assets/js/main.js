@@ -1,9 +1,15 @@
 // select header
-const header = document.querySelector('.header')
+const header = document.querySelector('.header');
 // select nav
-// select nav trigger
+document.addEventListener('DOMContentLoaded', function() {
+    const navTrigger = document.querySelector('.header__nav-trigger');
+    const nav = document.querySelector('.nav');
 
-// open - close menu
+    navTrigger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+});
+
 
 // header background on scroll
 window.addEventListener('scroll', () =>{
