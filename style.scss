@@ -354,3 +354,17 @@ img {
 
 
 }
+
+.features{
+    position: relative;
+    z-index: 2;
+    @include breakpoint(desktop){
+        margin-top: 18px;
+    }
+    &__container{
+        padding: 6.6rem;
+        background: $c-white;
+        box-shadow: $c-shadow-1;
+        display: flex;
+    }
+}
