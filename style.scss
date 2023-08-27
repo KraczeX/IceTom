@@ -164,6 +164,70 @@ img {
     }
 }
 
+.section-primary {
+    background: url(assets/img/texture-bg.svg);
+    &__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        @include breakpoint(tablet){
+            flex-direction: row;
+            text-align: left;
+            gap: 6rem;
+            width: 90vw;
+        }
+        @include breakpoint(desktop){
+            width: auto;
+        }
+    }
+    &__img{
+        max-width: 40rem;
+        margin: 3rem 0;
+        @include breakpoint(tablet){
+            max-width: 30rem;
+        }   
+        @include breakpoint(desktop){
+            max-width: 48.8rem;
+            margin: 0;
+        }
+     }
+     &__subtitle{
+        max-width: 77.4rem;
+        margin: 0 0 3.2rem 0;
+     }
+     &__number{
+        display: none;
+     }
+     @include breakpoint(desktop){
+        &__container{
+            display: flex;
+            flex-direction: row;
+            text-align: left;
+            gap: 14.4rem;
+        }
+        &__text,
+        &__img{
+            flex: 1;
+        }
+        &__subtitle{
+            max-width: 37.4rem;
+        }
+        &__text-group{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &__number{
+            display: block;
+            font-size: 21rem;
+            font-style: italic;
+            font-weight: $fw-extrabold;
+            color: $c-light-blue;
+        }
+     }
+}
+
 .btn{
     background: none;
     border: none;
@@ -367,29 +431,60 @@ img {
         box-shadow: $c-shadow-1;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        align-content: center;
         justify-content: space-evenly;
-        @include breakpoint(tablet){
+       @include breakpoint(tablet){
             gap: 8rem;
         }
-        @include breakpoint(desktop){
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    }
+         @include breakpoint(desktop){
+             flex-direction: row;
+             justify-content: space-between;
+         }
+     }
 
     .feature{
         text-align: center;
         margin-bottom: 4rem;
         max-width: 26.8rem;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        @include breakpoint(tablet){
+            text-align: left;
+            margin-bottom: 0;
+        }
         &__img{
             width: 7.6rem;
             height: 7.6rem;
             margin: 0 auto 2.8rem auto;
             @include breakpoint(tablet){
                 margin: 0 0 2.8rem 0;
+            }
 
+        }
+        &__subtitle{
+            margin-bottom: 1rem;
+        }
+        &__link{
+            color: $c-blue;
+            &::after{
+                content: '';
+                display: block;
+                width: 0;
+                height: 0.2rem;
+                background: transparent;
+                transition: all 0.38s ease;
+            }
+            &:hover{
+                &::after{
+                    content: '';
+                    display: block;
+                    width: 7rem;
+                    height: 0.2rem;
+                    transition: all 0.38s ease;
+                    background: $c-blue;
+                }
             }
         }
     }
-}
+}   

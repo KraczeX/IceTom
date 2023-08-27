@@ -127,6 +127,77 @@ img {
   }
 }
 
+.section-primary {
+  background: url(assets/img/texture-bg.svg);
+}
+.section-primary__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .section-primary__container {
+    flex-direction: row;
+    text-align: left;
+    gap: 6rem;
+    width: 90vw;
+  }
+}
+@media (min-width: 1200px) {
+  .section-primary__container {
+    width: auto;
+  }
+}
+.section-primary__img {
+  max-width: 40rem;
+  margin: 3rem 0;
+}
+@media (min-width: 768px) {
+  .section-primary__img {
+    max-width: 30rem;
+  }
+}
+@media (min-width: 1200px) {
+  .section-primary__img {
+    max-width: 48.8rem;
+    margin: 0;
+  }
+}
+.section-primary__subtitle {
+  max-width: 77.4rem;
+  margin: 0 0 3.2rem 0;
+}
+.section-primary__number {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .section-primary__container {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    gap: 14.4rem;
+  }
+  .section-primary__text, .section-primary__img {
+    flex: 1;
+  }
+  .section-primary__subtitle {
+    max-width: 37.4rem;
+  }
+  .section-primary__text-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-primary__number {
+    display: block;
+    font-size: 21rem;
+    font-style: italic;
+    font-weight: 800;
+    color: hsl(218, 100%, 96%);
+  }
+}
+
 .btn {
   background: none;
   border: none;
@@ -346,7 +417,7 @@ img {
   box-shadow: 0px 54px 104px 0px rgba(0, 0, 0, 0.0392156863);
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-content: center;
   justify-content: space-evenly;
 }
 @media (min-width: 768px) {
@@ -365,6 +436,15 @@ img {
   margin-bottom: 4rem;
   max-width: 26.8rem;
 }
+.features .feature:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .features .feature {
+    text-align: left;
+    margin-bottom: 0;
+  }
+}
 .features .feature__img {
   width: 7.6rem;
   height: 7.6rem;
@@ -374,4 +454,26 @@ img {
   .features .feature__img {
     margin: 0 0 2.8rem 0;
   }
+}
+.features .feature__subtitle {
+  margin-bottom: 1rem;
+}
+.features .feature__link {
+  color: hsl(219, 97%, 62%);
+}
+.features .feature__link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0.2rem;
+  background: transparent;
+  transition: all 0.38s ease;
+}
+.features .feature__link:hover::after {
+  content: "";
+  display: block;
+  width: 7rem;
+  height: 0.2rem;
+  transition: all 0.38s ease;
+  background: hsl(219, 97%, 62%);
 }/*# sourceMappingURL=style.css.map */
