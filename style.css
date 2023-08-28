@@ -476,4 +476,34 @@ img {
   height: 0.2rem;
   transition: all 0.38s ease;
   background: hsl(219, 97%, 62%);
+}
+
+.brands__img {
+  max-width: 300px;
+  max-height: 150px;
+}
+
+.companies {
+  text-align: center;
+}
+.companies__title {
+  margin-bottom: 5.7rem;
+}
+@media (min-width: 768px) {
+  .companies__title {
+    margin-bottom: 11.4rem;
+  }
+}
+.companies .brands {
+  max-width: 105rem;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+@media (min-width: 768px) {
+  .companies .brands {
+    gap: 8rem;
+  }
 }/*# sourceMappingURL=style.css.map */
