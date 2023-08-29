@@ -568,28 +568,31 @@ img {
             font-size: 2rem;
         }
     }
-    .social{
+    .social {
         display: flex;
         gap: 3rem;
-    }
-    &__link{
-        width: 4.8rem;
-        height: 4.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        color: $c-white;
-        background: $c-blue;
-        transition: all 0.3s ease-in-out;
-        &:hover{
-            background: darken($c-blue, 10%);
+
+        &__link {
+            color: $c-white;  
+            width: 4.8rem;
+            height: 4.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: $c-blue;
             transition: all 0.3s ease-in-out;
+            &:hover {
+                background: darken($c-blue, 10%);
+                transition: all 0.3s ease-in-out;
+            }
+
+            &__icon {
+                font-size: 3rem;           
+             }
         }
     }
-    &__icon{
-        font-size: 3rem;
-    }
+
     &__info{
         margin-bottom: 6rem;
         @include breakpoint(tablet){
