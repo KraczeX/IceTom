@@ -1,1 +1,0 @@
-# hiking-website-starter
